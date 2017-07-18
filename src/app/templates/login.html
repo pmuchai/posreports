@@ -1,0 +1,31 @@
+<div>
+  <md-toolbar color="primary">
+    <span>ANGULAR 2 TEST APP</span>
+  </md-toolbar>
+
+  <md-card>
+    <form (ngSubmit)="authenticate()" #loginForm="ngForm">
+      <div layout="row" flex="100" layout-align="center center" style="padding: 100px;">
+        <div layout="column" flex="70">
+          <md-input-container>
+            <input mdInput id="username" [(ngModel)]="data.username" name="username" type="text" class="login-width" placeholder="Username" required autocomplete="off">
+          </md-input-container>
+        </div>
+        <div layout="column" flex="25">
+          <md-input-container>
+            <input mdInput id="password" type="password" [(ngModel)]="data.password" name="password" placeholder="Password" required autocomplete="off"> <!--ng-keypress="enterKeyPressed($event,user)"-->
+          </md-input-container>
+        </div>
+        <div layout="column" flex="25">
+          <button md-raised-button color="accent" type="submit">Login</button>
+        </div>
+      </div>
+    </form>
+  </md-card>
+
+  <span class="done">
+    <button md-fab>
+      <md-icon>check circle</md-icon>
+    </button>
+  </span>
+</div>

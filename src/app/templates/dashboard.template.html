@@ -1,0 +1,121 @@
+<script type="text/javascript">
+  $(document).ready(function() {
+    $('#example').DataTable( {
+      dom: 'Bfrtip',
+      buttons: [
+        'copy', 'csv', 'excel', 'pdf', 'print'
+      ]
+    } );
+  } );
+
+</script>
+<div>
+  <md-toolbar color="primary">
+    <button md-button [mdMenuTriggerFor]="nav">Total Sales</button>
+    <md-menu #nav="mdMenu">
+      <button md-menu-item>Item 1</button>
+      <button md-menu-item>Item 2</button>
+    </md-menu>
+    <button md-button [mdMenuTriggerFor]="waiterSales">Waiter Sales</button>
+    <md-menu #waiterSales="mdMenu">
+      <button md-menu-item>Item 1</button>
+      <button md-menu-item>Item 2</button>
+    </md-menu>
+
+    <button md-icon-button [md-menu-trigger-for]="menu">
+      <md-icon>more_vert</md-icon>
+    </button>
+  </md-toolbar>
+  <md-menu x-position="before" #menu="mdMenu">
+    <button md-menu-item>Logout</button>
+    <button md-menu-item>User Profile</button>
+  </md-menu>
+</div>
+
+<div class="container-fluid">
+  <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+
+    <div class="row">
+      <h2 class="col-xs-6">Dashboard</h2>
+    </div>
+    <div class="panel panel-default">
+      <div class="panel-heading">Information</div>
+
+      <table class="table table-striped" [mfData]="data" #mf="mfDataTable" [mfRowsOnPage]="5">
+        <thead>
+        <tr>
+          <th style="width: 10%"></th>
+          <th style="width: 20%">
+            <mfDefaultSorter by="PosPayDetailsID">ID</mfDefaultSorter>
+          </th>
+          <th style="width: 40%">
+            <mfDefaultSorter by="PosTrnMstID">MST</mfDefaultSorter>
+          </th>
+          <th style="width: 10%">
+            <mfDefaultSorter by="PayAmount">PAY AMOUNT</mfDefaultSorter>
+          </th>
+          <th style="width: 20%">
+            <mfDefaultSorter [by]="TenderAmt">TENDER AMT</mfDefaultSorter>
+          </th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let item of payments">
+          <td>
+            <button (click)="remove(item)" class="btn btn-danger">x</button>
+          </td>
+          <td>{{item.PosPayDetailsID}}</td>
+          <td>{{item.PosTrnMstID}}</td>
+          <td>{{item.PayAmount}}</td>
+          <td>{{item.TenderAmt}}</td>
+        </tr>
+        </tbody>
+        <tfoot>
+        <tr>
+          <td colspan="5">
+            <mfBootstrapPaginator [rowsOnPageSet]="[5,10,15]"></mfBootstrapPaginator>
+          </td>
+        </tr>
+        </tfoot>
+      </table>
+    </div>
+  </div>
+</div>
+
+
+<div class="container-fluid">
+  <div class="col-xs-12 col-md-10 col-md-offset-1 col-lg-8 col-lg-offset-2">
+<table id="example" class="display nowrap" cellspacing="0" width="100%">
+  <thead>
+  <tr>
+    <th>Name</th>
+    <th>Position</th>
+    <th>Office</th>
+    <th>Age</th>
+    <th>Start date</th>
+    <th>Salary</th>
+  </tr>
+  </thead>
+  <tfoot>
+  <tr>
+    <th>Name</th>
+    <th>Position</th>
+    <th>Office</th>
+    <th>Age</th>
+    <th>Start date</th>
+    <th>Salary</th>
+  </tr>
+  </tfoot>
+  <tbody>
+  <tr>
+    <td>Tiger Nixon</td>
+    <td>System Architect</td>
+    <td>Edinburgh</td>
+    <td>61</td>
+    <td>2011/04/25</td>
+    <td>$320,800</td>
+  </tr>
+  </tbody>
+  </table>
+    </div>
+  </div>

@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>PAYMENTS</title>
+</head>
+<body>
+<table>
+  <tr>
+    <th>ID</th>
+    <th>MST ID</th>
+    <th>PAY AMOUNT</th>
+    <th>TENDER AMT</th>
+    <th>CHANGE AMT</th>
+  </tr>
+  <tr *ngFor="let payment of payments">
+    <td>{{payment.PosPayDetailsID}}</td>
+    <td>{{payment.PosTrnMstID}}</td>
+    <td>{{payment.PayAmount}}</td>
+    <td>{{payment.TenderAmt}}</td>
+    <td>{{payment.ChangeAmt}}</td>
+  </tr>
+</table>
+</body>
+</html>
