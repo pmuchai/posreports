@@ -1,7 +1,6 @@
 /**
  * Created by HP on 12/07/2017.
  */
-//import * as _ from 'lodash';
 import * as _ from "lodash";
 import {Pipe, PipeTransform} from "@angular/core";
 

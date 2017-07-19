@@ -3,11 +3,12 @@
  */
 export class Payment{
   constructor(
-    private PosPayDetailsID:string,
     private PosTrnMstID:string,
     private PayAmount:number,
     private TenderAmt:number,
-    private ChangeAmt:number)
+    private ChangeAmt:number,
+    private PaymentDtl:string,
+    private RunDate:string)
   {
 
   }
